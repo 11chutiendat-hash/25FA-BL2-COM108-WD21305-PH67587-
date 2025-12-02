@@ -41,6 +41,41 @@
 			printf("Mang[%d] = %d\n ", i, integerArray[i]);
 		}
 	}
+
+	void demoMangHaiChieu()
+	{
+		//string - string.h
+		char mangkytu[10] = "DAT";
+		//scanf_s( %c
+		//printf( %c
+		//gets(mangkytu);
+
+		for (int i = 0; i < 3; i++)
+		{
+			scanf_s(" %c", &mangkytu[i]);
+		}
+		puts(mangkytu);
+
+		int array[2][3];
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				printf("mang[%d][%d] = ", i, j);
+				scanf_s("%d", &array[i][j]);
+			}
+		}
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				printf("%d, ", array[i][j]);
+			}
+			printf("\n");
+		}
+	}
+
+
 	void lapChucNang(int chonChucNang)
 	{
 		int tiepTuc = 1;
@@ -55,7 +90,7 @@
 				sapXepPhanTuMang();
 				break;
 			case 3:
-				// ham goi chuc nang 3
+				demoMangHaiChieu();
 				break;
 			default:
 				printf("Chon sai. Chuc nang hop le [0-3]");
@@ -80,7 +115,7 @@
 			printf("\n");
 			printf("2. sapXepPhanTuMang");
 			printf("\n");
-			printf("3. TEN chuc nang 3");
+			printf("3. demoMangHaiChieu");
 			printf("\n");
 			printf("0. Thoat");
 			printf("\n");
