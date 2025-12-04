@@ -8,28 +8,27 @@
 void kiemTraSoNguyen()
 {
 
-	
-		int x;
-		printf("Nhap x: ");
-		scanf_s("%d", &x);
-		printf("%d la so nguyen.\n", x);
-		// Kiem tra so nguyen to
-		int nguyento = 1, i = 2;
-		if (x < 2) nguyento = 0;
-		while (i * i <= x && nguyento) 
-		{
-			if (x % i == 0) nguyento = 0;
-			i++;
-		}
-		printf("%d %s la so nguyen to.\n", x, nguyento ? "" : "KHONG");
-		// Kiem tra so chinh phuong
-		int chinhphuong = 0;
-		for (i = 0; i * i <= x; i++) 
-		{
-			if (i * i == x) chinhphuong = 1;
-		}
-		printf("%d %s la so chinh phuong.\n", x, chinhphuong ? "" : "KHONG");
-	
+	int x;
+	printf("Nhap x: ");
+	scanf_s("%d", &x);
+	printf("%d la so nguyen.\n", x);
+	// Kiem tra so nguyen to
+	int nguyento = 1, i = 2;
+	if (x < 2) nguyento = 0;
+	while (i * i <= x && nguyento)
+	{
+		if (x % i == 0) nguyento = 0;
+		i++;
+	}
+	printf("%d %s la so nguyen to.\n", x, nguyento ? "" : "KHONG");
+	// Kiem tra so chinh phuong
+	int chinhphuong = 0;
+	for (i = 0; i * i <= x; i++)
+	{
+		if (i * i == x) chinhphuong = 1;
+	}
+	printf("%d %s la so chinh phuong.\n", x, chinhphuong ? "" : "KHONG");
+
 }
 
 void timUocSoChungVaBoiChungCua2So()
@@ -61,39 +60,39 @@ void timUocSoChungVaBoiChungCua2So()
 void tinhTienKaraoke()
 {
 	
-		int gioBatDau, gioKetThuc;
-		float tien = 0;
-		printf("Nhap gio bat dau: ");
-		scanf_s("%d", &gioBatDau);
-		printf("Nhap gio ket thuc: ");
-		scanf_s("%d", &gioKetThuc);
-		// kiem tra 
-		if (gioBatDau < 12 || gioKetThuc > 23 || gioBatDau >= gioKetThuc)
-		{
-			
-		}
-		int soGio = gioKetThuc - gioBatDau;
-		//tinh tien 
-		if (soGio <= 3) 
-		{
-			tien = soGio * 150000;
-		}
-		else 
-		{
-			tien = 3 * 150000 + (soGio - 3) * 150000 * 0.7;
-		}
+	int gioBatDau, gioKetThuc;
+	float tien = 0;
+	printf("Nhap gio bat dau: ");
+	scanf_s("%d", &gioBatDau);
+	printf("Nhap gio ket thuc: ");
+	scanf_s("%d", &gioKetThuc);
+	// kiem tra 
+	if (gioBatDau < 12 || gioKetThuc > 23 || gioBatDau >= gioKetThuc)
+	{
 
-		//in ra 
-		if (gioBatDau >= 14 && gioBatDau <= 17) 
-		{
-			tien = tien * 0.9;
-		}
+	}
+	int soGio = gioKetThuc - gioBatDau;
+	//tinh tien 
+	if (soGio <= 3)
+	{
+		tien = soGio * 150000;
+	}
+	else
+	{
+		tien = 3 * 150000 + (soGio - 3) * 150000 * 0.7;
+	}
 
-		printf("Tien can thanh toan: %.0f VND\n", tien);
+	//in ra 
+	if (gioBatDau >= 14 && gioBatDau <= 17)
+	{
+		tien = tien * 0.9;
+	}
+
+	printf("Tien can thanh toan: %.0f VND\n", tien);
 
 
 	
-}
+}	  
 
 void tinhTienDien()
 {
