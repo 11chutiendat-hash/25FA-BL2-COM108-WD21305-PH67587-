@@ -68,10 +68,8 @@ void tinhTienKaraoke()
 		printf("Nhap gio ket thuc: ");
 		scanf_s("%d", &gioKetThuc);
 		// kiem tra 
-		if (gioBatDau < 12 || gioKetThuc > 23 || gioBatDau >= gioKetThuc) 
+		if (gioBatDau < 12 || gioKetThuc > 23 || gioBatDau >= gioKetThuc)
 		{
-			printf("Gio khong hop le!");
-			printf("\n");
 			
 		}
 		int soGio = gioKetThuc - gioBatDau;
@@ -130,39 +128,55 @@ void chucNangDoiTien()
 
 void tinhLaiXuatVayNganHangTraGop()
 {
+	//khai bao
+	float tienVay;
+	const float laiThang = 0.05; 
+	const int soThang = 12;
+	//nguoi dung nhap
+	printf("Nhap so tien muon vay: ");
+	scanf_s("%f", &tienVay);
+	//tong lai, tien vay
+	float tongLai = tienVay * laiThang * soThang;
+	float tongPhaiTra = tienVay + tongLai;
+	float traMoiThang = tongPhaiTra / soThang;
+	//in ket qua
+	printf("Tong tien lai: %.0f VND\n", tongLai);
+	printf("Tong phai tra: %.0f VND\n", tongPhaiTra);
+	printf("So tien phai tra hang thang: %.0f VND\n", traMoiThang);
 
 }
 
 void vayTienMuaXe()
 {
-	    //nhap cac ki tu
-		float phantramvay;
-		float sotien = 500000000;       
-		float laiXuatNam = 0.072;       
-		float laixuatthang = laiXuatNam / 12;  
-		int thang = 24 * 12;             
-		//vay
-		printf("Nhap phan tram vay (vd: 80): ");
-		scanf_s("%f", &phantramvay);
-		//ti le
-		float tilevay = phantramvay / 100.0;         
-		float sotienphaitratruoc = sotien * (1 - tilevay); 
-		float sotienthucte = sotien * tilevay;     
-		//tinh toan
-		float M = sotienthucte * (laixuatthang * pow(1 + laixuatthang, thang))
-			/ (pow(1 + laixuatthang, thang) - 1);
-		//ket qua
-		printf("Tien tra truoc (lan dau): %.0f VND", sotienphaitratruoc);
-		printf("\n");
-		printf("Tien phai tra hang thang: %.0f VND", M);
-		printf("\n");
-
+	//khai bao
+	float phanTram, giaXe = 500000000, laiThang = 0.072 / 12;
+	int soThang = 24 * 12;
+	//nguoi dung nhap
+	printf("Nhap phan tram vay: ");
+	scanf_s("%f", &phanTram);
+	//tinh toan
+	float soTienVay = giaXe * phanTram / 100;
+	float traTruoc = giaXe - soTienVay;
+	float luyThua = 1;
+	for (int i = 0; i < soThang; i++)
+		luyThua *= (1 + laiThang);
+	float traHangThang = soTienVay * laiThang * luyThua / (luyThua - 1);
+	//in ket qua
+	printf("Tien tra truoc: %.0f VND\n", traTruoc);
+	printf("Tien tra hang thang: %.0f VND\n", traHangThang);
 		
 }
 
 void sapXepThongTinSinhVien()
 {
+	//thong tin sinh vien: ho ten
+	char name[50] = "DAT";
+	while (getchar() != '\n');
+	printf("Nhap ten cua ban : ");
+	fgets(name, sizeof(name), stdin);
+	printf("%s", name);
 	float diem;
+	printf("\n");
 	//nhap diem
 	do
 	{
@@ -208,37 +222,40 @@ void sapXepThongTinSinhVien()
 			printf("\n");
 		}
 
-		return 0;
 
 	}
+	
 }
 
 void xayDungGameFPOLY()
 { 
-	    //nhap du lieu
-	    int a, b, x, y;
-		int dem = 0;
-		printf("Nhap so thu nhat tu 1 den 15: ");
-		scanf("%d", &a);
-		printf("Nhap so thu hai tu 1 den 15: ");
-		scanf("%d", &b);
-		//tinh toan
-		x = random() % 15 + 1;
-		y = random() % 15 + 1;
-		printf("\nSo may man: %d - %d\n", x, y);
-		if (a == x || a == y) dem++;
-		if (b == x || b == y) dem++;
-		//in ra
-		if (dem == 0)
-			printf("Chuc ban may man lan sau\n");
-		else if (dem == 1)
-			printf("Chuc mung ban trung giai NHI\n");
-		else
-			printf("Chuc mung ban trung giai NHAT\n");
+	    
 
 
 	
 }
+
+void tinhToanPhanSo()
+{
+    //khai bao
+	int a, b, c, d;
+	//moi nguoi dung nhap vao 
+	printf(" Moi nhap so thu nhat (tu mau): ");
+	scanf_s("%d %d", &a, &b);
+	printf(" Moi nhap so thu hai (tu mau): ");
+	scanf_s("%d %d", &c, &d);
+	//tinh toan
+	printf("\nTong   = %d/%d", a * d + b * c, b * d);
+	printf("\nHieu   = %d/%d", a * d - b * c, b * d);
+	printf("\nTich   = %d/%d", a * c, b * d);
+	printf("\nThuong = %d/%d", a * d, b * c);
+	
+
+
+	
+}
+
+
 
 	void lapChucNang(int chonChucNang)
 	{
@@ -273,6 +290,9 @@ void xayDungGameFPOLY()
 				break;
 			case 9:
 				xayDungGameFPOLY();
+				break;
+			case 10:
+				tinhToanPhanSo();
 				break;
 			default:
 				printf("Chon sai. Chuc nang hop le [0-3]");
@@ -310,6 +330,8 @@ void xayDungGameFPOLY()
 			printf("8. sapXepThongTinSinhVien");
 			printf("\n");
 			printf("9. xayDungGameFPOLY");
+			printf("\n");
+			printf("10. tinhToanPhanSo");
 			printf("\n");
 			printf("0. Thoat");
 			printf("\n");
