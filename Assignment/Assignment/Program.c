@@ -220,15 +220,35 @@ void sapXepThongTinSinhVien()
 			printf("Hoc luc: Kem");
 			printf("\n");
 		}
-
-
 	}
 	
+    
 }
 
 void xayDungGameFPOLY()
 { 
 	    
+	    // khai bao
+		int a, b;           
+		int x, y;          
+		int dem = 0;
+		//nguoi dung nhap
+		printf("Nhap 2 so tu 1 - 15: ");
+		scanf_s("%d %d", &a, &b);
+		//tinh toan
+		x = rand() % 15 + 1;
+		y = rand() % 15 + 1;
+		printf("He thong sinh: %02d %02d\n", x, y);
+		//kiem tra
+		if (a == x || a == y) dem++;
+		if (b == x || b == y) dem++;
+		//in ket qua
+		if (dem == 2)
+			printf("Chuc mung ban da trung giai nhat!\n");
+		else if (dem == 1)
+			printf("Chuc mung ban da trung giai nhi!\n");
+		else
+			printf("Chuc ban may man lan sau!\n");
 
 
 	
@@ -248,10 +268,7 @@ void tinhToanPhanSo()
 	printf("\nHieu   = %d/%d", a * d - b * c, b * d);
 	printf("\nTich   = %d/%d", a * c, b * d);
 	printf("\nThuong = %d/%d", a * d, b * c);
-	
 
-
-	
 }
 
 

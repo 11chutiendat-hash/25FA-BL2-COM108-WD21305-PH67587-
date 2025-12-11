@@ -3,22 +3,71 @@
 
 #include <stdio.h>
 
-int main()
+void thongTinGiaDinh()
 {
-    printf("Hi there!\n");
+	char name[20] = "Dat";
+	printf("Nhap ten cua ban: \n");
+	fgets(name, sizeof(name), stdin);
+	printf("Ten cua ban la: \n", &name);
+
 }
 
-// Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
 
-// Danh cho nguoi moi bat dau:
-//   1. Dung "Solution Explorer window" de them/quan ly cac files
-//   2. Dung "Output window" de kiem tra "build output" va "cac thong bao khac"
-//   3. Dung "Error List window" de xem loi
-//   4. Chon "Project > Add New Item" de tao moi file code,
-//      hoac "Project > Add Existing Item" de them file da ton tai vao project nay.
-//   5. Sau nay, de mo lai project nay,
-//      chon "File > Open > Project" va chon file *.sln
-//      Co the xem thu muc project, noi luu file *.sln bang cach
-//      bam phim chuot phai vao "Solution" > chon "Open Folder in File Explorer"
+void soChiaHetCho5()
+{
+	float n;
+}
 
-// GV: AnhTT184
+thongTinSinhVienThiLapTrinh()
+{
+
+}
+
+void lapChucNang(int chonChucNang)
+{
+	int tiepTuc = 1;
+	while (tiepTuc == 1)
+	{
+		switch (chonChucNang)
+		{
+		case 1:
+			thongTinGiaDinh();
+			break;
+		case 2:
+			soChiaHetCho5();
+			break;
+		case 3:
+			thongTinSinhVienThiLapTrinh();
+			break;
+		default:
+			printf("Chon sai. Chuc nang hop le [0-3]");
+			break;
+		}
+
+		printf("Tiep tuc thuc hien chuc nang nay? [1=Co | 0=Khong]: ");
+		scanf_s("%d", &tiepTuc);
+		system("cls");
+	}
+
+}
+
+int main()
+{
+	int chonChucNang;
+	do
+	{
+		printf("Menu");
+		printf("\n");
+		printf("1. thongTinGiaDinh");
+		printf("\n");
+		printf("2. soChiaHetCho5");
+		printf("\n");
+		printf("3. thongTinSinhVienThiLapTrinh");
+		printf("\n");
+		printf("0. Thoat");
+		printf("\n");
+		printf("Hay chon chuc nang [1-10]: ");
+		scanf_s("%d", &chonChucNang);
+		lapChucNang(chonChucNang);
+	} while (chonChucNang != 0);
+}
